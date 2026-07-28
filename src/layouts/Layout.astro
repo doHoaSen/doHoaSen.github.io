@@ -1,0 +1,69 @@
+---
+import 'pretendard/dist/web/variable/pretendardvariable.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'doHoaSen — GAZETTE',
+  description = '강수연의 개발자 포트폴리오 & 저널. 프로젝트, 기술 스택, Velog 글을 신문 형식으로 소개합니다.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ProfilePage',
+        mainEntity: {
+          '@type': 'Person',
+          name: '강수연',
+          alternateName: 'Kang Suyeon',
+          jobTitle: 'Backend Developer',
+          url: 'https://dohoasen.github.io',
+          sameAs: [
+            'https://github.com/doHoaSen',
+            'https://velog.io/@tnfdus',
+          ],
+        },
+      })}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
