@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import velogPosts from '../data/velog-posts.json';
 import projects from '../data/projects.json';
+import githubStats from '../data/github-stats.json';
 
 function formatDate(iso: string) {
   return iso.replaceAll('-', '.');
@@ -19,30 +20,27 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
 <nav class="side-drawer" id="sideDrawer" aria-hidden="true">
   <h3>doHoaSen</h3>
   <div class="drawer-group">
-    <span class="caps">Pages</span>
+    <span class="drawer-label">Pages</span>
     <ul>
       <li><a href="#profile">Profile</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="/projects">Archive</a></li>
       <li><a href="#writing">Writing</a></li>
-      <li><a href="#guestbook">Guestbook</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
   <div class="drawer-group">
-    <span class="caps">Velog Series</span>
+    <span class="drawer-label">Velog</span>
     <ul>
-      <li><a href="https://velog.io/@tnfdus/series" target="_blank" rel="noopener">Velog-Series-Stats-프로젝트</a></li>
-      <li><a href="https://velog.io/@tnfdus/series" target="_blank" rel="noopener">MCP_JobSearch_프로젝트</a></li>
-      <li><a href="https://velog.io/@tnfdus/series" target="_blank" rel="noopener">기술공부</a></li>
-      <li><a href="https://velog.io/@tnfdus/series" target="_blank" rel="noopener">MORE ↗</a></li>
+      <li><a href="https://velog.io/@tnfdus/series" target="_blank" rel="noopener">All Series ↗</a></li>
+      <li><a href="https://velog.io/@tnfdus/posts" target="_blank" rel="noopener">All Posts ↗</a></li>
     </ul>
   </div>
   <div class="drawer-group">
-    <span class="caps">Elsewhere</span>
+    <span class="drawer-label">Elsewhere</span>
     <ul>
       <li><a href="https://github.com/doHoaSen" target="_blank" rel="noopener">GitHub ↗</a></li>
-      <li><a href="https://velog.io/@tnfdus/posts" target="_blank" rel="noopener">Velog ↗</a></li>
     </ul>
   </div>
 </nav>
@@ -75,6 +73,7 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
       <a href="#profile">Profile</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="/projects">Archive</a>
       <a href="#writing">Writing</a>
       <a href="#contact">Contact</a>
     </div>
@@ -119,18 +118,20 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
       <span class="gh-title">GitHub Activity</span>
       <span class="gh-sub">Past 12 Months · @doHoaSen</span>
       <div class="gh-rule"></div>
-      <div class="gh-line"><span>Contributions</span><span>741</span></div>
-      <div class="gh-line"><span>Commits</span><span>459</span></div>
-      <div class="gh-line"><span>Pull Requests</span><span>53</span></div>
-      <div class="gh-line"><span>Longest Streak</span><span>13d</span></div>
+      <div class="gh-line"><span>Contributions</span><span>{githubStats.contributionsPastYear}</span></div>
+      <div class="gh-line"><span>Commits</span><span>{githubStats.commits}</span></div>
+      <div class="gh-line"><span>Pull Requests</span><span>{githubStats.pullRequests}</span></div>
+      <div class="gh-line"><span>Longest Streak</span><span>{githubStats.longestStreak}d</span></div>
       <div class="gh-rule is-final"></div>
       <div class="gh-spark" aria-hidden="true">
-        <i style="height:41%"></i><i style="height:45%"></i><i style="height:36%"></i><i style="height:2px"></i>
-        <i style="height:9%"></i><i style="height:23%"></i><i style="height:27%"></i><i style="height:41%"></i>
-        <i style="height:9%"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i>
-        <i style="height:100%"></i><i style="height:36%" class="is-today"></i>
+        {githubStats.sparkline.map((d, i) => (
+          <i
+            style={`height:${Math.max(d.heightPercent, 3)}%`}
+            class={i === githubStats.sparkline.length - 1 ? 'is-today' : undefined}
+          />
+        ))}
       </div>
-      <div class="gh-line"><span>Today</span><span>8</span></div>
+      <div class="gh-line"><span>Today</span><span>{githubStats.today}</span></div>
     </div>
     </div>
   </div>

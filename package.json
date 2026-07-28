@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "sync-velog": "node scripts/sync-velog.mjs"
+    "sync-velog": "node scripts/sync-velog.mjs",
+    "sync-github-stats": "node scripts/sync-github-stats.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

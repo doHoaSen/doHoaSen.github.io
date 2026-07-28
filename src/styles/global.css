@@ -418,7 +418,10 @@
   .side-drawer.is-open { transform: translateX(0); }
   .side-drawer h3 { font-family: var(--font-script); font-weight: 400; font-size: 2rem; margin: 0 0 1.8rem; }
   .drawer-group { margin-bottom: 2.2rem; }
-  .drawer-group .caps { display: block; margin-bottom: 0.7rem; }
+  .drawer-label {
+    display: block; margin-bottom: 0.5rem; font-family: var(--font-script);
+    font-size: 1.5rem; color: var(--ink);
+  }
   .drawer-group ul { list-style: none; margin: 0; padding: 0; }
   .drawer-group li { border-bottom: 1px solid var(--line); }
   .drawer-group li a {

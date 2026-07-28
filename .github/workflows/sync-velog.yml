@@ -1,4 +1,4 @@
-name: Sync Velog Posts
+name: Sync Data
 
 on:
   schedule:
@@ -18,14 +18,17 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run sync-velog
+      - run: npm run sync-github-stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit changes if any
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- src/data/velog-posts.json; then
-            echo "No new posts. Skipping commit."
+          if git diff --quiet -- src/data/velog-posts.json src/data/github-stats.json; then
+            echo "No changes. Skipping commit."
           else
-            git add src/data/velog-posts.json
-            git commit -m "[$(date +%y%m%d)] Velog 최신 글 자동 동기화"
+            git add src/data/velog-posts.json src/data/github-stats.json
+            git commit -m "[$(date +%y%m%d)] Velog 글·GitHub 활동 자동 동기화"
             git push
           fi
