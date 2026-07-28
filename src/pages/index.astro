@@ -8,6 +8,13 @@ function formatDate(iso: string) {
   return iso.replaceAll('-', '.');
 }
 
+function formatUpdatedAt(iso: string) {
+  const d = new Date(iso);
+  const kst = new Date(d.getTime() + 9 * 60 * 60 * 1000);
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${kst.getUTCFullYear()}.${pad(kst.getUTCMonth() + 1)}.${pad(kst.getUTCDate())} ${pad(kst.getUTCHours())}:${pad(kst.getUTCMinutes())}`;
+}
+
 const leadPost = velogPosts.find((p) => p.isLead) ?? velogPosts[0];
 const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
 ---
@@ -132,6 +139,7 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
         ))}
       </div>
       <div class="gh-line"><span>Today</span><span>{githubStats.today}</span></div>
+      <span class="gh-updated">{formatUpdatedAt(githubStats.updatedAt)} 기준 (KST)</span>
     </div>
     </div>
   </div>
