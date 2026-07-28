@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import projects from '../data/projects.json';
+---
+
+<Layout title="Projects Archive — doHoaSen" description="강수연의 프로젝트 7개를 전부 소개하는 아카이브 페이지.">
+  <header class="archive-header">
+    <div class="wrap archive-header-row">
+      <a class="archive-back" href="/">← doHoaSen</a>
+      <span class="caps">Projects Archive</span>
+    </div>
+    <hr class="rule-double" />
+  </header>
+
+  <section class="archive-intro">
+    <div class="wrap">
+      <h1 class="archive-title">Every Project</h1>
+      <p class="archive-lede">홈페이지에는 5개만 골라 실었지만, 여기서는 {projects.length}개 전부를 처음부터 끝까지 볼 수 있어요.</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="archive-list">
+    <div class="wrap">
+      {projects.map((p, i) => (
+        <article class="article-feature" id={`archive-${p.id}`}>
+          <div class="af-eyebrow">
+            <span class="caps">{String(i + 1).padStart(2, '0')}</span>
+            <span class="caps">{p.eyebrow}</span>
+            <span class="caps">{p.period}</span>
+          </div>
+          <h2 class="af-title">{p.title}</h2>
+          <div class="af-body">
+            <div class="af-meta">
+              <dl>
+                <dt>Stack</dt>
+                <dd>{p.stack?.join(' · ')}</dd>
+                <dt>Link</dt>
+                <dd>
+                  {p.links.github ? (
+                    <a href={p.links.github} target="_blank" rel="noopener">GitHub ↗</a>
+                  ) : (
+                    p.links.githubNote
+                  )}
+                </dd>
+              </dl>
+            </div>
+            <div class="af-content">
+              <p class="af-desc">{p.lede}</p>
+              {p.sections.map((s) => (
+                <div class="detail-section">
+                  <h3>{s.h}</h3>
+                  <p>{s.p}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <footer class="archive-footer">
+    <div class="wrap">
+      <a class="archive-back" href="/">← 홈으로 돌아가기</a>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .archive-header-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 0;
+  }
+  .archive-back {
+    font-family: var(--font-script); font-size: 1.3rem; text-decoration: none; color: var(--ink);
+  }
+  .archive-intro { padding-bottom: 0; }
+  .archive-title {
+    font-family: var(--font-mast); font-weight: 900; font-size: clamp(2.4rem, 6vw, 3.6rem);
+    letter-spacing: -0.01em; margin: 0 0 0.8rem;
+  }
+  .archive-lede { color: var(--ink-soft); font-size: 1rem; max-width: 60ch; }
+  .archive-list .article-feature:first-of-type { padding-top: 2.6rem; }
+  .archive-footer { padding: 2.4rem 0 3.6rem; text-align: center; }
+  .archive-footer .archive-back { font-size: 1.5rem; }
+</style>
