@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import velogPosts from '../data/velog-posts.json';
+
+function formatDate(iso: string) {
+  return iso.replaceAll('-', '.');
+}
+
+const leadPost = velogPosts.find((p) => p.isLead) ?? velogPosts[0];
+const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
 ---
 
 <Layout>
@@ -51,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
 <header>
   <div class="wrap meta-bar">
     <span class="script">Portfolio Edition</span>
-    <span class="visitor-tag">Visitors <b>1,204</b> <span class="today-tag">· Today 18</span></span>
+    <span class="visitor-tag">Visitors <b id="visitorTotal">—</b> <span class="today-tag">· Today <span id="visitorToday">—</span></span></span>
     <span class="script date-tag">2026. 07. 28</span>
   </div>
   <hr class="rule-double" />
@@ -332,69 +340,47 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <article class="lead-story">
-      <div class="af-eyebrow"><span class="caps">Chrome Extension</span><span class="caps">2026.07.27</span></div>
+      <div class="af-eyebrow">
+        {leadPost.tags.slice(0, 1).map((tag) => <span class="caps">{tag}</span>)}
+        <span class="caps">{formatDate(leadPost.publishedAt)}</span>
+      </div>
       <div class="lead-body">
         <div>
-          <h3 class="lead-title">manifest.json은 왜 필요할까?</h3>
-          <p class="lead-excerpt">Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램, Velog Series Stats를 만들고 있다. 지난 TypeScript 편에 이어, 이번에는 크롬 확장 프로그램에서 manifest.json이 어떤 역할을 하는지 정리했다.</p>
-          <a class="lead-link" href="https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-manifest.json%EC%9D%80-%EC%99%9C-%ED%95%84%EC%9A%94%ED%95%A0%EA%B9%8C" target="_blank" rel="noopener">Velog에서 전체 읽기 →</a>
+          <h3 class="lead-title">{leadPost.title}</h3>
+          <p class="lead-excerpt">{leadPost.description}</p>
+          <a class="lead-link" href={leadPost.url} target="_blank" rel="noopener">Velog에서 전체 읽기 →</a>
         </div>
-        <div class="lead-side">
-          <div class="lead-orbs">
-            <div class="orb"><b>20</b><span>Min Read</span></div>
-            <div class="orb"><b>11K</b><span>Characters</span></div>
-            <div class="orb"><b>43</b><span>Code Blocks</span></div>
+        {leadPost.stats && (
+          <div class="lead-side">
+            <div class="lead-orbs">
+              <div class="orb"><b>{leadPost.stats.minRead}</b><span>Min Read</span></div>
+              <div class="orb"><b>{leadPost.stats.characters}</b><span>Characters</span></div>
+              <div class="orb"><b>{leadPost.stats.codeBlocks}</b><span>Code Blocks</span></div>
+            </div>
+            {leadPost.series && (
+              <>
+                <div class="lead-rule"></div>
+                <span class="caps">Related Project</span>
+                <a class="lead-related" href={leadPost.relatedProjectId ? `#project-${leadPost.relatedProjectId}` : leadPost.url}>
+                  {leadPost.series} →
+                </a>
+              </>
+            )}
           </div>
-          <div class="lead-rule"></div>
-          <span class="caps">Related Project</span>
-          <a class="lead-related" href="#project-velogstats">Velog Series Stats →</a>
-        </div>
+        )}
       </div>
     </article>
 
     <div class="writing-cols">
-      <div class="w-article">
-        <span class="caps">TypeScript</span>
-        <h3>interface와 type은 왜 사용할까?</h3>
-        <span class="byline">2026.07.27 · Velog Series Stats</span>
-        <p>같은 프로젝트를 타입스크립트로 작성하면서도 헷갈렸던 interface와 type의 차이를 파고들었다.</p>
-        <a href="https://velog.io/@tnfdus/TypeScript-interface%EC%99%80-type%EC%9D%80-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C" target="_blank" rel="noopener">Velog에서 읽기 →</a>
-      </div>
-      <div class="w-article">
-        <span class="caps">MCP · Backend</span>
-        <h3>MCP 서버 처음부터 만들기</h3>
-        <span class="byline">2026.07.20 · MCP JobSearch</span>
-        <p>추상화 라이브러리 없이 공식 SDK로 MCP 서버를 처음부터 만들어보며 정리한 기록.</p>
-        <a href="https://velog.io/@tnfdus/MCP-%EC%84%9C%EB%B2%84-%EC%B2%98%EC%9D%8C%EB%B6%80%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0-modelcontextprotocolsdk-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0" target="_blank" rel="noopener">Velog에서 읽기 →</a>
-      </div>
-      <div class="w-article">
-        <span class="caps">Auth · Backend</span>
-        <h3>JWT란?</h3>
-        <span class="byline">2026.07.20 · 기술공부</span>
-        <p>로그인 상태와 인증 정보를 토큰으로 주고받는 JWT, 그 구조와 동작 방식을 정리했다.</p>
-        <a href="https://velog.io/@tnfdus/JWT%EB%9E%80" target="_blank" rel="noopener">Velog에서 읽기 →</a>
-      </div>
-      <div class="w-article">
-        <span class="caps">MCP · Backend</span>
-        <h3>왜 MCP로 채용공고 자동화를 만들었나</h3>
-        <span class="byline">2026.07.17 · MCP JobSearch</span>
-        <p>채용 공고 마감일을 놓치던 불편함에서 시작해, MCP JobSearch를 만들게 된 계기와 설계 과정.</p>
-        <a href="https://velog.io/@tnfdus/%EC%99%9C-MCP%EB%A1%9C-%EC%B1%84%EC%9A%A9%EA%B3%B5%EA%B3%A0-%EC%9E%90%EB%8F%99%ED%99%94%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%97%88%EB%82%98" target="_blank" rel="noopener">Velog에서 읽기 →</a>
-      </div>
-      <div class="w-article">
-        <span class="caps">Infra</span>
-        <h3>Redis</h3>
-        <span class="byline">2026.07.17 · 기술공부</span>
-        <p>사이드 프로젝트의 메일 인증 로직에 Redis를 도입하며 정리한 개념 노트.</p>
-        <a href="https://velog.io/@tnfdus/Redis" target="_blank" rel="noopener">Velog에서 읽기 →</a>
-      </div>
-      <div class="w-article">
-        <span class="caps">FrontEnd · UX</span>
-        <h3>삭제 실행 취소 UX — setTimeout으로 5초 유예 구현하기</h3>
-        <span class="byline">2026.04.24 · FinTrack</span>
-        <p>confirm() 팝업 대신, 삭제 후 5초 안에 되돌릴 수 있는 실행 취소 UX를 프론트엔드만으로 구현한 기록.</p>
-        <a href="https://velog.io/@tnfdus/FrontEnd-%EC%82%AD%EC%A0%9C-%EC%8B%A4%ED%96%89-%EC%B7%A8%EC%86%8C-UX-setTimeout-Snackbar%EB%A1%9C-5%EC%B4%88-%EC%9C%A0%EC%98%88-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0" target="_blank" rel="noopener">Velog에서 읽기 →</a>
-      </div>
+      {secondaryPosts.map((post) => (
+        <div class="w-article">
+          <span class="caps">{post.tags.length ? post.tags.slice(0, 2).join(' · ') : post.series}</span>
+          <h3>{post.title}</h3>
+          <span class="byline">{formatDate(post.publishedAt)}{post.series ? ` · ${post.series}` : ''}</span>
+          <p>{post.description}</p>
+          <a href={post.url} target="_blank" rel="noopener">Velog에서 읽기 →</a>
+        </div>
+      ))}
     </div>
 
     <div class="continued">
@@ -403,7 +389,7 @@ import Layout from '../layouts/Layout.astro';
       <a href="https://velog.io/@tnfdus/posts" target="_blank" rel="noopener">velog.io/@tnfdus에서 전체 글 보기 →</a>
     </div>
 
-    <p class="writing-note">※ 위 7편(톱기사 포함)은 velog.io/@tnfdus RSS에서 직접 가져온 실제 최신 글입니다. 실제 배포 시에는 이 조회를 빌드 타임 자동화(GitHub Actions)로 대체해, 새 글이 올라올 때마다 자동으로 갱신됩니다.</p>
+    <p class="writing-note">※ 위 {velogPosts.length}편(톱기사 포함)은 velog.io/@tnfdus RSS·본문에서 직접 가져온 실제 최신 글입니다(src/data/velog-posts.json). <code>npm run sync-velog</code>로 언제든 다시 갱신할 수 있고, GitHub Actions가 주기적으로 이 명령을 자동 실행합니다.</p>
   </div>
 </section>
 
@@ -605,6 +591,36 @@ import Layout from '../layouts/Layout.astro';
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { closeDetail(); }
   });
+})();
+
+(function () {
+  // 방문자 수: counterapi.dev(회원가입 없이 쓸 수 있는 카운터 API)로 실측.
+  // 전체 누적 카운터 하나와, 날짜별 네임스페이스(YYYY-MM-DD)로 "오늘" 카운터를 분리해서 집계한다.
+  var NAMESPACE = 'dohoasen-github-io';
+  var totalEl = document.getElementById('visitorTotal');
+  var todayEl = document.getElementById('visitorToday');
+  if (!totalEl || !todayEl) { return; }
+
+  function formatNumber(n) {
+    return typeof n === 'number' ? n.toLocaleString('en-US') : '—';
+  }
+
+  function todayKey() {
+    var d = new Date();
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    var dd = String(d.getDate()).padStart(2, '0');
+    return 'day-' + d.getFullYear() + '-' + mm + '-' + dd;
+  }
+
+  function bump(key, el) {
+    fetch('https://api.counterapi.dev/v1/' + NAMESPACE + '/' + key + '/up')
+      .then(function (res) { return res.json(); })
+      .then(function (data) { el.textContent = formatNumber(data.count); })
+      .catch(function () { el.textContent = '—'; });
+  }
+
+  bump('total', totalEl);
+  bump(todayKey(), todayEl);
 })();
 </script>
 </Layout>

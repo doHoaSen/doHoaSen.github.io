@@ -1,0 +1,98 @@
+[
+  {
+    "id": "manifest-json",
+    "title": "manifest.json은 왜 필요할까?",
+    "url": "https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-manifest.json%EC%9D%80-%EC%99%9C-%ED%95%84%EC%9A%94%ED%95%A0%EA%B9%8C",
+    "publishedAt": "2026-07-27",
+    "tags": [
+      "Chrome-Extension",
+      "TIL",
+      "Velog-Series-Stats"
+    ],
+    "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램 Velog Series Stats 를 만들고 있다. 지난 편 에서는 TypeScript의 interface 와 type 을 살펴봤다. 프로젝트를",
+    "isLead": true,
+    "series": "Velog Series Stats",
+    "relatedProjectId": "velogstats",
+    "stats": {
+      "minRead": 20,
+      "characters": "11K",
+      "codeBlocks": 43
+    }
+  },
+  {
+    "id": "typescript-interface-type",
+    "title": "interface와 type은 왜 사용할까?",
+    "url": "https://velog.io/@tnfdus/TypeScript-interface%EC%99%80-type%EC%9D%80-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C",
+    "publishedAt": "2026-07-27",
+    "tags": [
+      "TIL",
+      "Velog-Series-Stats",
+      "typescript"
+    ],
+    "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램, Velog Series Stats 를 만들고 있다. 타입스크립트로 코드를 쓰고는 있지만 interface , type , 제네릭 같은 것들을 ",
+    "isLead": false,
+    "series": "Velog Series Stats"
+  },
+  {
+    "id": "mcp-server-from-scratch",
+    "title": "MCP 서버 처음부터 만들기 / @modelcontextprotocol/sdk 사용하기",
+    "url": "https://velog.io/@tnfdus/MCP-%EC%84%9C%EB%B2%84-%EC%B2%98%EC%9D%8C%EB%B6%80%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0-modelcontextprotocolsdk-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0",
+    "publishedAt": "2026-07-20",
+    "tags": [
+      "JobSearch",
+      "MCP"
+    ],
+    "description": "개요 1부 에서는 이 프로젝트를 왜 시작했는지, 그리고 왜 LangChain이나 Vercel AI SDK 같은 추상화 레이어 없이 공식 @modelcontextprotocol/sdk 를 직접 사용해 MCP를 배우기로",
+    "isLead": false,
+    "series": "MCP JobSearch"
+  },
+  {
+    "id": "jwt-란",
+    "title": "JWT란?",
+    "url": "https://velog.io/@tnfdus/JWT%EB%9E%80",
+    "publishedAt": "2026-07-20",
+    "tags": [],
+    "description": "1. JWT란 무엇인가 JWT는 JSON Web Token 의 약자로, 사용자의 로그인 상태와 인증 정보를 토큰 형태로 전달하기 위한 표준이다. 쉽게 말하면 JWT는 서버가 사용자에게 발급하는 전자 출입증 사용자가 ",
+    "isLead": false,
+    "series": "기술공부"
+  },
+  {
+    "id": "why-mcp-jobsearch",
+    "title": "왜 MCP로 채용공고 자동화를 만들었나",
+    "url": "https://velog.io/@tnfdus/%EC%99%9C-MCP%EB%A1%9C-%EC%B1%84%EC%9A%A9%EA%B3%B5%EA%B3%A0-%EC%9E%90%EB%8F%99%ED%99%94%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%97%88%EB%82%98",
+    "publishedAt": "2026-07-17",
+    "tags": [
+      "JobSearch",
+      "MCP"
+    ],
+    "description": "시작하게 된 계기 요즘 여러 채용 사이트(원티드, 사람인, 잡코리아, 점핏, 그룹바이...)를 돌아다니며 공고를 확인하다 보면 늘 같은 불편함이 반복됐습니다. 관심 있는 공고를 발견해도 마감일을 따로 메모해두지 않으",
+    "isLead": false,
+    "series": "MCP JobSearch"
+  },
+  {
+    "id": "redis",
+    "title": "Redis",
+    "url": "https://velog.io/@tnfdus/Redis",
+    "publishedAt": "2026-07-17",
+    "tags": [
+      "기술공부"
+    ],
+    "description": "공식문서 https://redis.io/docs/latest/develop/get-started/data-store/ 개요 사이드 프로젝트에서 메일 인증 로직을 담당하며 redis를 사용하게 되었습니다. 이에 red",
+    "isLead": false,
+    "series": "기술공부"
+  },
+  {
+    "id": "delete-undo-ux",
+    "title": "삭제 실행 취소 UX — setTimeout + Snackbar로 5초 유예 구현하기",
+    "url": "https://velog.io/@tnfdus/FrontEnd-%EC%82%AD%EC%A0%9C-%EC%8B%A4%ED%96%89-%EC%B7%A8%EC%86%8C-UX-setTimeout-Snackbar%EB%A1%9C-5%EC%B4%88-%EC%9C%A0%EC%98%88-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0",
+    "publishedAt": "2026-04-24",
+    "tags": [
+      "FinTrack",
+      "TIL",
+      "frontend"
+    ],
+    "description": "개요 지출 내역 페이지에는 삭제 버튼이 있다. 기존에는 confirm() 팝업으로 한 번 더 물어보는 방식이었다. 하지만 실제로 써보면 이런 문제가 있다. 사용자가 무의식적으로 “확인”을 누름 UX가 끊김 실수 복구",
+    "isLead": false,
+    "series": "FinTrack"
+  }
+]
