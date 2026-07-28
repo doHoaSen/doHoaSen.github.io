@@ -100,7 +100,9 @@ async function main() {
       const pubDate = extract(/<pubDate>([\s\S]*?)<\/pubDate>/, item);
       const descRaw = extract(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/, item);
       const plain = stripHtml(descRaw);
-      const publishedAt = new Date(pubDate).toISOString().slice(0, 10);
+      const publishedAt = new Date(new Date(pubDate).getTime() + 9 * 60 * 60 * 1000)
+        .toISOString()
+        .slice(0, 10);
 
       const prev = previousByUrl.get(url);
       // RSS의 title에는 "[말머리]"가 그대로 남아있는데, 실제 사이트에서는 떼고 보여준다.

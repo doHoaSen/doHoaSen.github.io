@@ -557,10 +557,10 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
   }
 
   function todayKey() {
-    var d = new Date();
-    var mm = String(d.getMonth() + 1).padStart(2, '0');
-    var dd = String(d.getDate()).padStart(2, '0');
-    return 'day-' + d.getFullYear() + '-' + mm + '-' + dd;
+    var kst = new Date(Date.now() + 9 * 60 * 60 * 1000);
+    var mm = String(kst.getUTCMonth() + 1).padStart(2, '0');
+    var dd = String(kst.getUTCDate()).padStart(2, '0');
+    return 'day-' + kst.getUTCFullYear() + '-' + mm + '-' + dd;
   }
 
   function requestCount(key) {
