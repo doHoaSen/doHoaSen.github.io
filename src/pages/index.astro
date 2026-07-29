@@ -499,18 +499,22 @@ const issueProjectBlurb = issueProject.lede.split('.')[0].trim();
     var html = '';
     html += '<div class="af-eyebrow"><span class="caps">' + data.eyebrow + '</span><span class="caps">' + data.period + '</span></div>';
     html += '<h2 id="detailHeading">' + data.title + '</h2>';
-    html += '<p class="detail-lede">' + data.lede + '</p>';
+    var allStats = [];
+    data.sections.forEach(function (s) { if (s.stats) { allStats = allStats.concat(s.stats); } });
+    if (allStats.length) {
+      html += '<div class="stat-tags">' + allStats.map(function (t) {
+        return '<span class="stat-tag">' + t + '</span>';
+      }).join('') + '</div>';
+    }
+    html += '<blockquote class="af-clip"><span class="quote-mark">&ldquo;</span><p>' + data.lede + '</p></blockquote>';
+    if (data.stack && data.stack.length) {
+      html += '<dl class="detail-stack"><dt class="caps">Stack</dt><dd>' + data.stack.join(' · ') + '</dd></dl>';
+    }
     data.sections.forEach(function (s) {
-      var statsHtml = '';
-      if (s.stats && s.stats.length) {
-        statsHtml = '<div class="stat-tags">' + s.stats.map(function (t) {
-          return '<span class="stat-tag">' + t + '</span>';
-        }).join('') + '</div>';
-      }
       var bodyHtml = s.why
         ? '<p class="whr">' + s.why + '</p><p class="whr">' + s.how + '</p><p class="whr">' + s.result + '</p>'
         : '<p>' + s.p + '</p>';
-      html += '<div class="detail-section"><h3>' + s.h + '</h3>' + statsHtml + bodyHtml + '</div>';
+      html += '<div class="detail-section"><h3>' + s.h + '</h3>' + bodyHtml + '</div>';
     });
     html += '<div class="detail-links">';
     if (data.links.github) {

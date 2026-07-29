@@ -243,7 +243,7 @@
   }
   .af-clip::before {
     content: ""; position: absolute; top: -0.65rem; left: 50%;
-    width: 3.6rem; height: 1.2rem; background: var(--line); opacity: 0.55;
+    width: 4.2rem; height: 1.2rem; background: var(--line); opacity: 0.55;
     transform: translateX(-50%) rotate(-2deg);
   }
   .af-clip .quote-mark { font-size: 1.6rem; margin-bottom: 0.1rem; color: var(--ink-soft); }
@@ -324,7 +324,11 @@
   .detail-body h2 {
     font-family: var(--font-mast); font-weight: 900; font-size: clamp(2rem, 5vw, 2.8rem); margin: 0 0 1.2rem;
   }
-  .detail-body .detail-lede { font-size: 1.02rem; color: var(--ink-soft); max-width: 60ch; margin: 0 0 1.6rem; }
+  .detail-body .af-clip { max-width: 38rem; margin-bottom: 1.8rem; }
+  .detail-body .stat-tags + .af-clip { margin-top: 1.2rem; }
+  .detail-stack { margin: 0 0 1.8rem; }
+  .detail-stack dt { font-family: var(--font-sans); font-weight: 600; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+  .detail-stack dd { margin: 0.3rem 0 0; font-size: 0.88rem; color: var(--ink-soft); }
   .detail-section { padding: 1.4rem 0; border-top: 1px solid var(--line); }
   .detail-section:first-of-type { border-top: none; padding-top: 0; }
   .detail-section h3 { font-family: var(--font-sans); font-weight: 700; font-size: 1.02rem; margin: 0 0 0.5rem; }
