@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import projects from '../data/projects.json';
 ---
 
-<Layout title="doHoaSen.dev / Projects" description="강수연의 프로젝트 7개를 전부 소개하는 아카이브 페이지.">
+<Layout title="doHoaSen.dev / Projects" description="주요 프로젝트 7개를 전부 소개하는 아카이브 페이지.">
   <header class="archive-header">
     <div class="wrap archive-header-row">
       <a class="archive-back" href="/">← doHoaSen</a>
@@ -24,15 +24,27 @@ import projects from '../data/projects.json';
   <section class="archive-list">
     <div class="wrap">
       {projects.map((p, i) => (
-        <article class="article-feature" id={`archive-${p.id}`}>
-          <div class="af-eyebrow">
-            <span class="caps">{String(i + 1).padStart(2, '0')}</span>
-            <span class="caps">{p.eyebrow}</span>
-            <span class="caps">{p.period}</span>
-          </div>
-          <h2 class="af-title">{p.title}</h2>
-          <div class="af-body">
+        <article class="article-feature is-collapsible" id={`archive-${p.id}`}>
+          <button class="af-toggle" type="button" aria-expanded="false" aria-controls={`archive-body-${p.id}`}>
+            <span class="af-num">{String(i + 1).padStart(2, '0')}</span>
+            <h2 class="af-title">{p.title}</h2>
+            <div class="af-eyebrow">
+              <span class="caps">{p.eyebrow}</span>
+            </div>
+            <span class="af-toggle-period caps">{p.period}</span>
+            <span class="af-chevron" aria-hidden="true"></span>
+          </button>
+          {p.sections.some((s) => s.stats && s.stats.length > 0) && (
+            <div class="stat-tags af-preview-tags">
+              {p.sections.flatMap((s) => s.stats || []).map((t: string) => <span class="stat-tag">{t}</span>)}
+            </div>
+          )}
+          <div class="af-body" id={`archive-body-${p.id}`} hidden>
             <div class="af-meta">
+              <blockquote class="af-clip">
+                <span class="quote-mark">&ldquo;</span>
+                <p>{p.lede}</p>
+              </blockquote>
               <dl>
                 <dt>Stack</dt>
                 <dd>{p.stack?.join(' · ')}</dd>
@@ -47,11 +59,18 @@ import projects from '../data/projects.json';
               </dl>
             </div>
             <div class="af-content">
-              <p class="af-desc">{p.lede}</p>
               {p.sections.map((s) => (
                 <div class="detail-section">
                   <h3>{s.h}</h3>
-                  <p>{s.p}</p>
+                  {s.why ? (
+                    <>
+                      <p class="whr">{s.why}</p>
+                      <p class="whr">{s.how}</p>
+                      <p class="whr">{s.result}</p>
+                    </>
+                  ) : (
+                    <p>{s.p}</p>
+                  )}
                 </div>
               ))}
             </div>
@@ -88,4 +107,42 @@ import projects from '../data/projects.json';
   .archive-back-ko { font-family: var(--font-sans); font-weight: 600; }
   .archive-footer { padding: 2.4rem 0 3.6rem; text-align: center; }
   .archive-footer .archive-back { font-size: 1.1rem; }
+
+  .is-collapsible .af-toggle {
+    display: flex; align-items: center; gap: 1rem; width: 100%;
+    background: none; border: none; padding: 0; margin: 0; cursor: pointer;
+    text-align: left; font: inherit; color: inherit;
+  }
+  .is-collapsible .af-toggle .af-eyebrow { margin-bottom: 0; flex: none; }
+  .is-collapsible .af-toggle .af-title { margin: 0; flex: 1; }
+  .af-num {
+    font-family: var(--font-sans); font-weight: 700; font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--ink); line-height: 1; flex: none;
+  }
+  .af-preview-tags { margin: 0.6rem 0 0; padding-left: calc(1.3rem + 1rem); }
+  .af-toggle-period { flex: none; white-space: nowrap; color: var(--ink-faint); }
+  .af-chevron {
+    flex: none; width: 1.6rem; height: 1.6rem; border: 1px solid var(--line);
+    border-radius: 50%; position: relative;
+  }
+  .af-chevron::before, .af-chevron::after {
+    content: ""; position: absolute; top: 50%; left: 50%; background: var(--ink);
+    transition: transform 0.2s ease;
+  }
+  .af-chevron::before { width: 0.7rem; height: 1.5px; transform: translate(-50%, -50%); }
+  .af-chevron::after { width: 1.5px; height: 0.7rem; transform: translate(-50%, -50%); }
+  .af-toggle[aria-expanded="true"] .af-chevron::after { transform: translate(-50%, -50%) rotate(90deg) scaleY(0); }
+  .is-collapsible .af-body { margin-top: 1.4rem; }
+  .is-collapsible .af-body[hidden] { display: none; }
 </style>
+
+<script>
+  Array.prototype.forEach.call(document.querySelectorAll('.af-toggle'), function (btn) {
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var body = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (body) { body.hidden = expanded; }
+    });
+  });
+</script>

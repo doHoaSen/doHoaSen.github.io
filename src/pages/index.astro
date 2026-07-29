@@ -254,8 +254,8 @@ const issueProjectBlurb = issueProject.lede.split('.')[0].trim();
       <div class="af-body">
         <div class="af-meta">
           <dl>
-            <dt>Role</dt><dd>기획 및 개발, 날씨 API 연동, 추천 로직 설계</dd>
-            <dt>Stack</dt><dd>React · Zustand · Spring Boot · MySQL · MyBatis · Flyway · OpenWeather API</dd>
+            <dt>Role</dt><dd>풀스택 기획 및 개발 (기여도 100%)</dd>
+            <dt>Stack</dt><dd>Java · Spring Boot · MySQL · MyBatis · Flyway · React · JavaScript · Zustand · OpenWeather API</dd>
           </dl>
         </div>
         <div class="af-content">
@@ -501,7 +501,16 @@ const issueProjectBlurb = issueProject.lede.split('.')[0].trim();
     html += '<h2 id="detailHeading">' + data.title + '</h2>';
     html += '<p class="detail-lede">' + data.lede + '</p>';
     data.sections.forEach(function (s) {
-      html += '<div class="detail-section"><h3>' + s.h + '</h3><p>' + s.p + '</p></div>';
+      var statsHtml = '';
+      if (s.stats && s.stats.length) {
+        statsHtml = '<div class="stat-tags">' + s.stats.map(function (t) {
+          return '<span class="stat-tag">' + t + '</span>';
+        }).join('') + '</div>';
+      }
+      var bodyHtml = s.why
+        ? '<p class="whr">' + s.why + '</p><p class="whr">' + s.how + '</p><p class="whr">' + s.result + '</p>'
+        : '<p>' + s.p + '</p>';
+      html += '<div class="detail-section"><h3>' + s.h + '</h3>' + statsHtml + bodyHtml + '</div>';
     });
     html += '<div class="detail-links">';
     if (data.links.github) {
