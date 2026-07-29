@@ -66,7 +66,7 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
   <div class="wrap meta-bar">
     <span class="script">Portfolio Edition</span>
     <span class="visitor-tag">Visitors <b id="visitorTotal">—</b> <span class="today-tag">· Today <span id="visitorToday">—</span></span></span>
-    <span class="script date-tag">2026. 07. 28</span>
+    <span class="script date-tag" id="dateTag">—</span>
   </div>
   <hr class="rule-double" />
   <div class="wrap masthead">
@@ -587,6 +587,15 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
 
   bump('total', totalEl);
   bump(todayKey(), todayEl);
+})();
+
+(function () {
+  // 헤더 날짜: KST 기준 오늘 날짜를 클라이언트에서 계산해 표시한다.
+  var dateEl = document.getElementById('dateTag');
+  if (!dateEl) { return; }
+  var kst = new Date(Date.now() + 9 * 60 * 60 * 1000);
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+  dateEl.textContent = kst.getUTCFullYear() + '. ' + pad(kst.getUTCMonth() + 1) + '. ' + pad(kst.getUTCDate());
 })();
 </script>
 </Layout>
