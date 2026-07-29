@@ -1,5 +1,24 @@
 [
   {
+    "id": "크롬-확장-프로그램-package-json-package-lock-json-scripts-npm은-무엇을-관",
+    "title": "package.json + package-lock.json + scripts, npm은 무엇을 관리할까?",
+    "url": "https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-package.json-package-lock.json-scripts-npm%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%84-%EA%B4%80%EB%A6%AC%ED%95%A0%EA%B9%8C",
+    "publishedAt": "2026-07-29",
+    "tags": [
+      "Chrome-Extension",
+      "TIL",
+      "Velog-Series-Stats"
+    ],
+    "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램, Velog Series Stats 를 만들었다. 깃허브 레포지토리 크롬 확장 프로그램 지난 편 에서는 크롬이 확장 프로그램의 구조와 권한을 파",
+    "isLead": true,
+    "series": "",
+    "stats": {
+      "minRead": 25,
+      "characters": "14K",
+      "codeBlocks": 68
+    }
+  },
+  {
     "id": "manifest-json",
     "title": "manifest.json은 왜 필요할까?",
     "url": "https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-manifest.json%EC%9D%80-%EC%99%9C-%ED%95%84%EC%9A%94%ED%95%A0%EA%B9%8C",
@@ -10,14 +29,9 @@
       "Velog-Series-Stats"
     ],
     "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램 Velog Series Stats 를 만들고 있다. 지난 편 에서는 TypeScript의 interface 와 type 을 살펴봤다. 프로젝트를",
-    "isLead": true,
+    "isLead": false,
     "series": "Velog Series Stats",
-    "relatedProjectId": "velogstats",
-    "stats": {
-      "minRead": 20,
-      "characters": "11K",
-      "codeBlocks": 43
-    }
+    "relatedProjectId": "velogstats"
   },
   {
     "id": "typescript-interface-type",
@@ -80,19 +94,5 @@
     "description": "공식문서 https://redis.io/docs/latest/develop/get-started/data-store/ 개요 사이드 프로젝트에서 메일 인증 로직을 담당하며 redis를 사용하게 되었습니다. 이에 red",
     "isLead": false,
     "series": "기술공부"
-  },
-  {
-    "id": "delete-undo-ux",
-    "title": "삭제 실행 취소 UX — setTimeout + Snackbar로 5초 유예 구현하기",
-    "url": "https://velog.io/@tnfdus/FrontEnd-%EC%82%AD%EC%A0%9C-%EC%8B%A4%ED%96%89-%EC%B7%A8%EC%86%8C-UX-setTimeout-Snackbar%EB%A1%9C-5%EC%B4%88-%EC%9C%A0%EC%98%88-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0",
-    "publishedAt": "2026-04-24",
-    "tags": [
-      "FinTrack",
-      "TIL",
-      "frontend"
-    ],
-    "description": "개요 지출 내역 페이지에는 삭제 버튼이 있다. 기존에는 confirm() 팝업으로 한 번 더 물어보는 방식이었다. 하지만 실제로 써보면 이런 문제가 있다. 사용자가 무의식적으로 “확인”을 누름 UX가 끊김 실수 복구",
-    "isLead": false,
-    "series": "FinTrack"
   }
 ]
