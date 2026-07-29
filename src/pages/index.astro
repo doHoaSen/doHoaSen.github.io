@@ -21,6 +21,7 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
 const relatedProjectId =
   leadPost?.relatedProjectId ?? velogPosts.find((p) => p.relatedProjectId)?.relatedProjectId;
 const issueProject =
+  projects.find((p) => p.spotlight) ??
   projects.find((p) => p.id === relatedProjectId) ??
   projects.find((p) => p.featured) ??
   projects[0];

@@ -70,6 +70,7 @@
     "lede": "Velog는 게시글별 조회수만 보여줄 뿐 시리즈 단위 통계는 제공하지 않는다는 불편에서 시작한 크롬 확장 프로그램. 로그인한 사용자의 글·시리즈 데이터를 Velog GraphQL로 가져와 시리즈별 총조회수·평균 조회수를 팝업에서 보여줍니다.",
     "stack": ["TypeScript", "Chrome Extension", "GraphQL"],
     "featured": true,
+    "spotlight": true,
     "sections": [
       { "h": "왜 탭에 스크립트를 주입하는가", "p": "확장 프로그램 팝업에서 직접 GraphQL에 요청하면 Origin이 달라 서버가 빈 응답을 준다는 걸 발견했습니다. velog.io 탭 안에 스크립트를 주입해 진짜 velog.io Origin으로 요청하도록 설계했습니다." },
       { "h": "점진적 렌더링", "p": "시리즈 목록(게시글 수 기준)부터 즉시 렌더링하고, 조회수는 GraphQL alias로 배치 조회하며 도착하는 대로 화면에 반영합니다. 서버 없이 확장 프로그램 내부에서 완결됩니다." }
