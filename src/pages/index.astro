@@ -17,6 +17,14 @@ function formatUpdatedAt(iso: string) {
 
 const leadPost = velogPosts.find((p) => p.isLead) ?? velogPosts[0];
 const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
+
+const relatedProjectId =
+  leadPost?.relatedProjectId ?? velogPosts.find((p) => p.relatedProjectId)?.relatedProjectId;
+const issueProject =
+  projects.find((p) => p.id === relatedProjectId) ??
+  projects.find((p) => p.featured) ??
+  projects[0];
+const issueProjectBlurb = issueProject.lede.split('.')[0].trim();
 ---
 
 <Layout>
@@ -100,8 +108,8 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
       <div class="issue-index">
         <span class="caps">In This Issue</span>
         <ul>
-          <li><a href="#projects"><span class="ii-label">Projects</span><span class="ii-body">FinTrack: 스파이크 탐지까지 하는 가계부 백엔드</span></a></li>
-          <li><a href="#writing"><span class="ii-label">Writing</span><span class="ii-body">왜 MCP로 채용공고 자동화를 만들었나</span></a></li>
+          <li><a href="#projects"><span class="ii-label">Projects</span><span class="ii-body">{issueProject.title}: {issueProjectBlurb}</span></a></li>
+          <li><a href="#writing"><span class="ii-label">Writing</span><span class="ii-body">{leadPost.title}</span></a></li>
           <li><a href="#skills"><span class="ii-label">Skills</span><span class="ii-body">Spring Boot부터 MCP까지, 여섯 가지 기본기</span></a></li>
         </ul>
       </div>
@@ -113,7 +121,7 @@ const secondaryPosts = velogPosts.filter((p) => p !== leadPost);
       <div class="r-rule"></div>
       <div class="r-line"><span>Role</span><span>Backend</span></div>
       <div class="r-line"><span>Focus</span><span>Full Stack</span></div>
-      <div class="r-line"><span>Since</span><span>2025. 02</span></div>
+      <div class="r-line"><span>Since</span><span>2024. 02</span></div>
       <div class="r-line"><span>Status</span><span>Open to Work</span></div>
       <div class="r-rule is-final"></div>
       <div class="r-barcode" aria-hidden="true" title="Code 39: *DOHOASEN*">
