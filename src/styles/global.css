@@ -182,6 +182,8 @@
   }
   .profile-list li:first-child { padding-top: 0; }
   .profile-list li span:last-child { color: var(--ink-faint); font-size: 0.78rem; white-space: nowrap; }
+  .profile-list li a { display: contents; color: inherit; text-decoration: none; }
+  .profile-list li a:hover span:first-child { text-decoration: underline; }
 
   /* ---------------- skills ---------------- */
   .skill-index { list-style: none; margin: 0; padding: 0; }
