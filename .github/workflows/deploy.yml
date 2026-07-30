@@ -6,6 +6,7 @@ on:
   workflow_run:
     workflows: ["Sync Data"]
     types: [completed]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -18,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    if: github.event_name == 'push' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
