@@ -35,7 +35,7 @@
   {
     "id": "speednews",
     "eyebrow": "Personal Project",
-    "period": "2025.07 —",
+    "period": "2025.07 — 2026.01",
     "title": "SpeedNews",
     "lede": "여러 언론사의 RSS를 수집해 새로고침 없이 최신 뉴스를 한 화면에서 실시간으로 제공하는 뉴스 스트리밍 서비스. 9개 주요 기능, 17개 REST API 엔드포인트로 구성했습니다.",
     "stack": ["Spring Boot", "React", "TypeScript", "Docker", "Render", "Netlify"],
