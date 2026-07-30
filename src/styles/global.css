@@ -146,10 +146,12 @@
   .receipt .r-line:last-child, .gh-line:last-child { border-bottom: none; }
   .receipt .r-line span:first-child, .gh-line span:first-child { color: var(--ink-soft); letter-spacing: 0.02em; }
   .receipt .r-line span:last-child, .gh-line span:last-child { font-weight: 700; }
-  .gh-updated {
+  .gh-updated, .r-updated {
     display: block; text-align: right; font-family: var(--font-sans); font-size: 0.62rem;
-    color: var(--ink-faint); margin-top: 0.55rem; font-style: italic;
+    margin-top: 0.55rem; font-style: italic;
   }
+  .gh-updated { color: var(--ink-faint); }
+  .r-updated { visibility: hidden; }
 
   .gh-ticker {
     background: var(--receipt); border: 1px solid var(--line); box-shadow: 0 8px 20px var(--shadow);
