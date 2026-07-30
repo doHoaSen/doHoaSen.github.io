@@ -39,7 +39,7 @@ query($login: String!) {
 
 // GitHub의 contributionCalendar는 UTC 날짜 단위로만 집계되어(GraphQL from/to를 줘도
 // 서브데이 필터링이 되지 않음) KST 자정 기준 "오늘"을 정확히 구할 수 없다.
-// 대신 실제 타임스탬프가 있는 공개 이벤트(Events API)를 KST 자정 이후로 걸러서 센다.
+// 대신 실제 타임스탬프가 있는 이벤트(Events API, 인증 토큰으로 private 포함)를 KST 자정 이후로 걸러서 센다.
 function kstMidnightUTC() {
   const KST_OFFSET_MS = 9 * 60 * 60 * 1000;
   const kstNow = new Date(Date.now() + KST_OFFSET_MS);
@@ -66,7 +66,7 @@ async function fetchTodayCount(token, since) {
   const events = [];
   for (let page = 1; page <= 3; page++) {
     const res = await fetch(
-      `https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=100&page=${page}`,
+      `https://api.github.com/users/${GITHUB_USERNAME}/events?per_page=100&page=${page}`,
       { headers }
     );
     if (!res.ok) throw new Error(`이벤트 조회 실패: ${res.status} ${await res.text()}`);
@@ -87,6 +87,9 @@ async function fetchTodayCount(token, since) {
     } else if (e.type === 'IssuesEvent' && e.payload.action === 'opened') {
       count += 1;
     } else if (e.type === 'PullRequestReviewEvent' && e.payload.action === 'created') {
+      count += 1;
+    } else if (e.type === 'CreateEvent' && e.payload.ref_type === 'branch') {
+      // 빈 리포에 첫 push로 브랜치가 생길 때는 PushEvent 없이 CreateEvent만 발생한다.
       count += 1;
     }
   }
