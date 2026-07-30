@@ -20,7 +20,7 @@ jobs:
       - run: npm run sync-velog
       - run: npm run sync-github-stats
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       - name: Commit changes if any
         run: |
           git config user.name "github-actions[bot]"
