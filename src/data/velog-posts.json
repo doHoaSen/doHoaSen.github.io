@@ -38,7 +38,11 @@
     "title": "interface와 type은 왜 사용할까?",
     "url": "https://velog.io/@tnfdus/TypeScript-interface%EC%99%80-type%EC%9D%80-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C",
     "publishedAt": "2026-07-27",
-    "tags": [],
+    "tags": [
+      "TIL",
+      "Velog-Series-Stats",
+      "typescript"
+    ],
     "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램, Velog Series Stats 를 만들고 있다. 타입스크립트로 코드를 쓰고는 있지만 interface , type , 제네릭 같은 것들을 ",
     "isLead": false,
     "series": "Velog Series Stats"
