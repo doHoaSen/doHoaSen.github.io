@@ -88,9 +88,7 @@
     "title": "Redis",
     "url": "https://velog.io/@tnfdus/Redis",
     "publishedAt": "2026-07-17",
-    "tags": [
-      "기술공부"
-    ],
+    "tags": [],
     "description": "공식문서 https://redis.io/docs/latest/develop/get-started/data-store/ 개요 사이드 프로젝트에서 메일 인증 로직을 담당하며 redis를 사용하게 되었습니다. 이에 red",
     "isLead": false,
     "series": "기술공부"
