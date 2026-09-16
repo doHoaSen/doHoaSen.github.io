@@ -4,7 +4,11 @@
     "title": "package.json + package-lock.json + scripts, npm은 무엇을 관리할까?",
     "url": "https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-package.json-package-lock.json-scripts-npm%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%84-%EA%B4%80%EB%A6%AC%ED%95%A0%EA%B9%8C",
     "publishedAt": "2026-07-29",
-    "tags": [],
+    "tags": [
+      "Chrome-Extension",
+      "TIL",
+      "Velog-Series-Stats"
+    ],
     "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램, Velog Series Stats 를 만들었다. 깃허브 레포지토리 크롬 확장 프로그램 지난 편 에서는 크롬이 확장 프로그램의 구조와 권한을 파",
     "isLead": true,
     "series": "",
