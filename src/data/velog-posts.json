@@ -75,7 +75,10 @@
     "title": "왜 MCP로 채용공고 자동화를 만들었나",
     "url": "https://velog.io/@tnfdus/%EC%99%9C-MCP%EB%A1%9C-%EC%B1%84%EC%9A%A9%EA%B3%B5%EA%B3%A0-%EC%9E%90%EB%8F%99%ED%99%94%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%97%88%EB%82%98",
     "publishedAt": "2026-07-17",
-    "tags": [],
+    "tags": [
+      "JobSearch",
+      "MCP"
+    ],
     "description": "시작하게 된 계기 요즘 여러 채용 사이트(원티드, 사람인, 잡코리아, 점핏, 그룹바이...)를 돌아다니며 공고를 확인하다 보면 늘 같은 불편함이 반복됐습니다. 관심 있는 공고를 발견해도 마감일을 따로 메모해두지 않으",
     "isLead": false,
     "series": "MCP JobSearch"
