@@ -23,7 +23,11 @@
     "title": "manifest.json은 왜 필요할까?",
     "url": "https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-manifest.json%EC%9D%80-%EC%99%9C-%ED%95%84%EC%9A%94%ED%95%A0%EA%B9%8C",
     "publishedAt": "2026-07-27",
-    "tags": [],
+    "tags": [
+      "Chrome-Extension",
+      "TIL",
+      "Velog-Series-Stats"
+    ],
     "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램 Velog Series Stats 를 만들고 있다. 지난 편 에서는 TypeScript의 interface 와 type 을 살펴봤다. 프로젝트를",
     "isLead": false,
     "series": "Velog Series Stats",
