@@ -52,10 +52,7 @@
     "title": "MCP 서버 처음부터 만들기 / @modelcontextprotocol/sdk 사용하기",
     "url": "https://velog.io/@tnfdus/MCP-%EC%84%9C%EB%B2%84-%EC%B2%98%EC%9D%8C%EB%B6%80%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0-modelcontextprotocolsdk-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0",
     "publishedAt": "2026-07-21",
-    "tags": [
-      "JobSearch",
-      "MCP"
-    ],
+    "tags": [],
     "description": "개요 1부 에서는 이 프로젝트를 왜 시작했는지, 그리고 왜 LangChain이나 Vercel AI SDK 같은 추상화 레이어 없이 공식 @modelcontextprotocol/sdk 를 직접 사용해 MCP를 배우기로",
     "isLead": false,
     "series": "MCP JobSearch"
