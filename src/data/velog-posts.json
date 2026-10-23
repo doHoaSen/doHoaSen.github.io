@@ -4,7 +4,11 @@
     "title": "package.json + package-lock.json + scripts, npm은 무엇을 관리할까?",
     "url": "https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-package.json-package-lock.json-scripts-npm%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%84-%EA%B4%80%EB%A6%AC%ED%95%A0%EA%B9%8C",
     "publishedAt": "2026-07-29",
-    "tags": [],
+    "tags": [
+      "Chrome-Extension",
+      "TIL",
+      "Velog-Series-Stats"
+    ],
     "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램, Velog Series Stats 를 만들었다. 깃허브 레포지토리 크롬 확장 프로그램 지난 편 에서는 크롬이 확장 프로그램의 구조와 권한을 파",
     "isLead": true,
     "series": "",
@@ -19,7 +23,11 @@
     "title": "manifest.json은 왜 필요할까?",
     "url": "https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-manifest.json%EC%9D%80-%EC%99%9C-%ED%95%84%EC%9A%94%ED%95%A0%EA%B9%8C",
     "publishedAt": "2026-07-27",
-    "tags": [],
+    "tags": [
+      "Chrome-Extension",
+      "TIL",
+      "Velog-Series-Stats"
+    ],
     "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램 Velog Series Stats 를 만들고 있다. 지난 편 에서는 TypeScript의 interface 와 type 을 살펴봤다. 프로젝트를",
     "isLead": false,
     "series": "Velog Series Stats",
@@ -67,7 +75,10 @@
     "title": "왜 MCP로 채용공고 자동화를 만들었나",
     "url": "https://velog.io/@tnfdus/%EC%99%9C-MCP%EB%A1%9C-%EC%B1%84%EC%9A%A9%EA%B3%B5%EA%B3%A0-%EC%9E%90%EB%8F%99%ED%99%94%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%97%88%EB%82%98",
     "publishedAt": "2026-07-17",
-    "tags": [],
+    "tags": [
+      "JobSearch",
+      "MCP"
+    ],
     "description": "시작하게 된 계기 요즘 여러 채용 사이트(원티드, 사람인, 잡코리아, 점핏, 그룹바이...)를 돌아다니며 공고를 확인하다 보면 늘 같은 불편함이 반복됐습니다. 관심 있는 공고를 발견해도 마감일을 따로 메모해두지 않으",
     "isLead": false,
     "series": "MCP JobSearch"
@@ -77,7 +88,9 @@
     "title": "Redis",
     "url": "https://velog.io/@tnfdus/Redis",
     "publishedAt": "2026-07-17",
-    "tags": [],
+    "tags": [
+      "기술공부"
+    ],
     "description": "공식문서 https://redis.io/docs/latest/develop/get-started/data-store/ 개요 사이드 프로젝트에서 메일 인증 로직을 담당하며 redis를 사용하게 되었습니다. 이에 red",
     "isLead": false,
     "series": "기술공부"
