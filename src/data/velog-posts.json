@@ -4,11 +4,7 @@
     "title": "package.json + package-lock.json + scripts, npm은 무엇을 관리할까?",
     "url": "https://velog.io/@tnfdus/%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-package.json-package-lock.json-scripts-npm%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%84-%EA%B4%80%EB%A6%AC%ED%95%A0%EA%B9%8C",
     "publishedAt": "2026-07-29",
-    "tags": [
-      "Chrome-Extension",
-      "TIL",
-      "Velog-Series-Stats"
-    ],
+    "tags": [],
     "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램, Velog Series Stats 를 만들었다. 깃허브 레포지토리 크롬 확장 프로그램 지난 편 에서는 크롬이 확장 프로그램의 구조와 권한을 파",
     "isLead": true,
     "series": "",
@@ -34,7 +30,11 @@
     "title": "interface와 type은 왜 사용할까?",
     "url": "https://velog.io/@tnfdus/TypeScript-interface%EC%99%80-type%EC%9D%80-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C",
     "publishedAt": "2026-07-27",
-    "tags": [],
+    "tags": [
+      "TIL",
+      "Velog-Series-Stats",
+      "typescript"
+    ],
     "description": "들어가며 Velog 시리즈별 조회수를 모아 보여주는 크롬 확장 프로그램, Velog Series Stats 를 만들고 있다. 타입스크립트로 코드를 쓰고는 있지만 interface , type , 제네릭 같은 것들을 ",
     "isLead": false,
     "series": "Velog Series Stats"
@@ -44,7 +44,10 @@
     "title": "MCP 서버 처음부터 만들기 / @modelcontextprotocol/sdk 사용하기",
     "url": "https://velog.io/@tnfdus/MCP-%EC%84%9C%EB%B2%84-%EC%B2%98%EC%9D%8C%EB%B6%80%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0-modelcontextprotocolsdk-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0",
     "publishedAt": "2026-07-21",
-    "tags": [],
+    "tags": [
+      "JobSearch",
+      "MCP"
+    ],
     "description": "개요 1부 에서는 이 프로젝트를 왜 시작했는지, 그리고 왜 LangChain이나 Vercel AI SDK 같은 추상화 레이어 없이 공식 @modelcontextprotocol/sdk 를 직접 사용해 MCP를 배우기로",
     "isLead": false,
     "series": "MCP JobSearch"
